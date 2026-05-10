@@ -1,259 +1,382 @@
-Skopiuj CAŁĄ zawartość poniżej i wklej do pliku `index.html` na GitHubie:
-
-```html
 <!DOCTYPE html>
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GOLDBoTPro2.2 — Subskrypcja</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GOLDBoTPro2.2</title>
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-    body {
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial,sans-serif;
+    }
+
+    body{
       background:
-        radial-gradient(circle at 15% 20%, rgba(180,120,255,0.45), transparent 35%),
-        radial-gradient(circle at 85% 15%, rgba(120,80,255,0.50), transparent 35%),
-        radial-gradient(circle at 50% 80%, rgba(255,180,0,0.15), transparent 40%),
-        linear-gradient(135deg,#160022,#2b0d5a 45%,#12001d 100%);
+        radial-gradient(circle at top left,#51218f 0%,transparent 30%),
+        radial-gradient(circle at top right,#31125e 0%,transparent 30%),
+        linear-gradient(135deg,#12051f 0%,#1d0935 40%,#0e0419 100%);
       color:#fff;
       min-height:100vh;
+      overflow-x:hidden;
     }
-    header {
+
+    header{
       display:flex;
       justify-content:space-between;
       align-items:center;
       padding:30px 60px;
     }
-    .logo {
+
+    .logo{
       font-size:42px;
       font-weight:900;
-      color:#ffd400;
+      color:#ffd700;
     }
-    nav a {
+
+    nav a{
       color:#fff;
-      margin-left:25px;
       text-decoration:none;
+      margin-left:28px;
+      font-size:18px;
       font-weight:bold;
     }
-    .hero {
+
+    .hero{
       display:flex;
       justify-content:space-between;
       align-items:center;
-      padding:60px;
-      gap:50px;
+      padding:80px 60px;
+      gap:60px;
+      flex-wrap:wrap;
     }
-    .hero-left {
-      max-width:700px;
+
+    .hero-left{
+      flex:1;
+      min-width:320px;
     }
-    .tag {
+
+    .tag{
       display:inline-block;
-      padding:10px 18px;
-      border:1px solid rgba(255,212,0,0.4);
+      padding:12px 20px;
+      border:1px solid rgba(255,215,0,.4);
       border-radius:30px;
-      color:#ffd400;
-      margin-bottom:25px;
+      color:#ffd700;
+      margin-bottom:30px;
       font-size:14px;
+      background:rgba(255,255,255,.04);
     }
-    h1 {
-      font-size:72px;
+
+    h1{
+      font-size:74px;
       line-height:1.05;
       margin-bottom:30px;
     }
-    .hero p {
-      font-size:26px;
-      line-height:1.6;
+
+    .hero p{
+      font-size:24px;
       color:#ddd;
+      line-height:1.7;
+      max-width:760px;
       margin-bottom:35px;
     }
-    .buttons {
+
+    .buttons{
       display:flex;
       gap:20px;
+      flex-wrap:wrap;
     }
-    .btn {
-      padding:18px 32px;
-      border-radius:16px;
-      font-weight:bold;
-      text-decoration:none;
-      transition:0.3s;
-    }
-    .btn-primary {
-      background:#ffd400;
-      color:#111;
-    }
-    .btn-secondary {
-      border:1px solid rgba(255,255,255,0.2);
-      color:#fff;
-      background:rgba(255,255,255,0.05);
-    }
-    .panel {
-      width:420px;
-      background:rgba(10,0,30,0.75);
-      border:1px solid rgba(255,212,0,0.2);
-      border-radius:30px;
-      padding:35px;
-      backdrop-filter:blur(10px);
-      box-shadow:0 0 40px rgba(255,212,0,0.15);
-    }
-    .robot {
-      width:180px;
-      height:180px;
-      border-radius:35px;
-      background:#ffd400;
-      margin:0 auto 30px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:#111;
-      font-size:38px;
-      font-weight:bold;
-    }
-    .panel h3 {
-      color:#ffd400;
-      margin-bottom:25px;
-      font-size:32px;
-    }
-    .row {
-      display:flex;
-      justify-content:space-between;
-      padding:18px 0;
-      border-bottom:1px solid rgba(255,255,255,0.08);
-      font-size:22px;
-    }
-    .download {
-      padding:80px 60px;
-    }
-    .download-box {
-      background:rgba(10,0,30,0.7);
-      border:1px solid rgba(255,212,0,0.15);
-      border-radius:30px;
-      padding:40px;
-      max-width:900px;
-      margin:auto;
-    }
-    .download-box h2 {
-      color:#ffd400;
-      margin-bottom:25px;
-      font-size:46px;
-    }
-    .download-box p {
-      color:#ddd;
-      font-size:24px;
-      line-height:1.6;
-      margin-bottom:30px;
-    }
-    .email-box {
-      display:flex;
-      gap:15px;
-      margin-bottom:30px;
-    }
-    .email-box input {
-      flex:1;
-      padding:18px;
-      border-radius:14px;
-      border:none;
-      background:#0a0714;
-      color:#fff;
-      font-size:18px;
-    }
-    .email-box button {
-      background:#ffd400;
-      border:none;
-      padding:18px 28px;
-      border-radius:14px;
-      font-weight:bold;
-      cursor:pointer;
-    }
-    .download-btn {
-      display:inline-block;
-      background:#ffd400;
-      color:#111;
-      padding:22px 34px;
+
+    .btn{
+      padding:18px 30px;
       border-radius:18px;
       text-decoration:none;
       font-weight:bold;
+      transition:.3s;
+    }
+
+    .btn-primary{
+      background:#ffd700;
+      color:#111;
+    }
+
+    .btn-secondary{
+      border:1px solid rgba(255,255,255,.2);
+      color:#fff;
+      background:rgba(255,255,255,.05);
+    }
+
+    .panel{
+      width:420px;
+      background:rgba(0,0,0,.28);
+      border:1px solid rgba(255,215,0,.2);
+      border-radius:30px;
+      padding:35px;
+      backdrop-filter:blur(16px);
+      box-shadow:0 0 40px rgba(255,215,0,.08);
+    }
+
+    .robot{
+      width:180px;
+      height:180px;
+      border-radius:35px;
+      background:#ffd700;
+      margin:0 auto 30px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      color:#111;
+      font-size:42px;
+      font-weight:900;
+    }
+
+    .panel h3{
+      font-size:34px;
+      color:#ffd700;
       margin-bottom:25px;
-      font-size:24px;
     }
-    ul {
-      list-style:none;
+
+    .row{
+      display:flex;
+      justify-content:space-between;
+      padding:18px 0;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      font-size:21px;
+    }
+
+    .download{
+      padding:60px;
+    }
+
+    .download-box{
+      max-width:980px;
+      margin:auto;
+      background:rgba(0,0,0,.28);
+      border:1px solid rgba(255,215,0,.15);
+      border-radius:30px;
+      padding:45px;
+      backdrop-filter:blur(12px);
+    }
+
+    .download-box h2{
+      font-size:48px;
+      color:#ffd700;
+      margin-bottom:20px;
+    }
+
+    .download-box p{
+      font-size:23px;
+      line-height:1.7;
       color:#ddd;
-      line-height:2;
-      font-size:22px;
+      margin-bottom:30px;
     }
-    footer {
+
+    .email-box{
+      display:flex;
+      gap:15px;
+      margin-bottom:35px;
+      flex-wrap:wrap;
+    }
+
+    .email-box input{
+      flex:1;
+      min-width:260px;
+      padding:18px;
+      border:none;
+      border-radius:16px;
+      background:#0d0718;
+      color:#fff;
+      font-size:18px;
+    }
+
+    .email-box button{
+      background:#ffd700;
+      border:none;
+      padding:18px 28px;
+      border-radius:16px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    .download-btn{
+      display:inline-block;
+      padding:22px 34px;
+      background:#ffd700;
+      color:#111;
+      border-radius:18px;
+      text-decoration:none;
+      font-weight:bold;
+      font-size:22px;
+      margin-bottom:30px;
+    }
+
+    ul{
+      list-style:none;
+      line-height:2;
+      color:#ddd;
+      font-size:21px;
+    }
+
+    footer{
       text-align:center;
       padding:40px;
       color:#aaa;
-      font-size:16px;
+      font-size:15px;
     }
+
+    @media(max-width:900px){
+
+      header{
+        flex-direction:column;
+        gap:20px;
+      }
+
+      nav{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .hero{
+        padding:50px 25px;
+      }
+
+      h1{
+        font-size:52px;
+      }
+
+      .panel{
+        width:100%;
+      }
+
+      .download{
+        padding:25px;
+      }
+
+      .download-box{
+        padding:30px;
+      }
+
+    }
+
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="logo">GOLDBoTPro2.2</div>
-    <nav>
-      <a href="#">Film</a>
-      <a href="#">Test 30 dni</a>
-      <a href="#">Subskrypcja</a>
-      <a href="#download">Pobranie</a>
-      <a href="#">Instrukcja MT5</a>
-      <a href="#">Kontakt</a>
-    </nav>
-  </header>
 
-  <section class="hero">
-    <div class="hero-left">
-      <div class="tag">Narzędzie do automatyzacji tradingu na złocie</div>
-      <h1>Automatyzuj swoją strategię na rynku złota</h1>
-      <p>
-        GOLDBoTPro2.2 to oprogramowanie, które pomaga automatyzować wybrane procesy tradingowe.
-        Użytkownik sam decyduje o ustawieniach, kapitale i sposobie wykorzystania narzędzia.
-      </p>
-      <div class="buttons">
-        <a class="btn btn-primary" href="#download">Testuj za darmo 30 dni</a>
-        <a class="btn btn-secondary" href="#">Zobacz jak działa</a>
-      </div>
+<header>
+  <div class="logo">GOLDBoTPro2.2</div>
+
+  <nav>
+    <a href="#">Film</a>
+    <a href="#">Test 30 dni</a>
+    <a href="#">Subskrypcja</a>
+    <a href="#download">Pobranie</a>
+    <a href="#">Instrukcja MT5</a>
+    <a href="#">Kontakt</a>
+  </nav>
+</header>
+
+<section class="hero">
+
+  <div class="hero-left">
+
+    <div class="tag">
+      Narzędzie do automatyzacji tradingu na złocie
     </div>
 
-    <div class="panel">
-      <div class="robot">AI</div>
-      <h3>Panel narzędzia</h3>
-      <div class="row"><span>Plik</span><strong>GOLDBoTPro2.2</strong></div>
-      <div class="row"><span>Rynek</span><strong>XAU/USD</strong></div>
-      <div class="row"><span>Tryb</span><strong>Automatyczny</strong></div>
-      <div class="row"><span>Licencja</span><strong>30 dni</strong></div>
-    </div>
-  </section>
+    <h1>
+      Automatyzuj swoją strategię na rynku złota
+    </h1>
 
-  <section class="download" id="download">
-    <div class="download-box">
-      <h2>Dostęp aktywny</h2>
-      <p>
-        Wpisz adres email użyty przy zakupie. System wyśle klucz licencyjny,
-        instrukcję instalacji MT5 oraz dokumenty.
-      </p>
+    <p>
+      GOLDBoTPro2.2 to oprogramowanie pomagające automatyzować wybrane procesy tradingowe.
+      Użytkownik sam decyduje o ustawieniach, kapitale i sposobie wykorzystania narzędzia.
+    </p>
 
-      <div class="email-box">
-        <input type="email" placeholder="Twój adres email" />
-        <button>Wyślij klucz i instrukcję</button>
-      </div>
-
-      <a class="download-btn" href="secure-download/GOLDBoTPro2.2.ex5">
-        Pobierz bota GOLDBoTPro2.2.ex5
+    <div class="buttons">
+      <a class="btn btn-primary" href="#download">
+        Testuj za darmo 30 dni
       </a>
 
-      <ul>
-        <li>✓ Instrukcja instalacji MT5</li>
-        <li>✓ Ostrzeżenie o ryzyku inwestycyjnym</li>
-        <li>✓ Regulamin usługi</li>
-        <li>✓ Polityka prywatności / RODO</li>
-      </ul>
+      <a class="btn btn-secondary" href="#">
+        Zobacz jak działa
+      </a>
     </div>
-  </section>
 
-  <footer>
-    © 2026 GOLDBoTPro2.2 — Wszystkie prawa zastrzeżone.
-  </footer>
+  </div>
+
+  <div class="panel">
+
+    <div class="robot">
+      AI
+    </div>
+
+    <h3>Panel narzędzia</h3>
+
+    <div class="row">
+      <span>Plik</span>
+      <strong>GOLDBoTPro2.2</strong>
+    </div>
+
+    <div class="row">
+      <span>Rynek</span>
+      <strong>XAU/USD</strong>
+    </div>
+
+    <div class="row">
+      <span>Tryb</span>
+      <strong>Automatyczny</strong>
+    </div>
+
+    <div class="row">
+      <span>Licencja</span>
+      <strong>30 dni</strong>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="download" id="download">
+
+  <div class="download-box">
+
+    <h2>Dostęp aktywny</h2>
+
+    <p>
+      Wpisz adres email użyty przy zakupie.
+      System wyśle klucz licencyjny, instrukcję instalacji MT5 oraz dokumenty.
+    </p>
+
+    <div class="email-box">
+      <input type="email" placeholder="Twój adres email">
+
+      <button>
+        Wyślij klucz i instrukcję
+      </button>
+    </div>
+
+    <a class="download-btn" href="#">
+      Pobierz bota GOLDBoTPro2.2.ex5
+    </a>
+
+    <ul>
+      <li>✓ Instrukcja instalacji MT5</li>
+      <li>✓ Ostrzeżenie o ryzyku inwestycyjnym</li>
+      <li>✓ Regulamin usługi</li>
+      <li>✓ Polityka prywatności / RODO</li>
+    </ul>
+
+  </div>
+
+</section>
+
+<footer>
+  © 2026 GOLDBoTPro2.2 — Wszystkie prawa zastrzeżone.
+</footer>
+
 </body>
 </html>
-```
